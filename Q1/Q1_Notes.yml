@@ -1,0 +1,30 @@
+
+# Read the data from the STDIN 
+    Line 1,
+    Lint 2
+    Line 3
+    Line 4 + 
+    - Save all for later use (may be in different variables with some meaningful data structure) 
+    e.g. I saved line 3(heuristics) in a dictionary. You can use anything but I am just giving you an example 
+    - Make sure, all of our input data is nicely saved in proper data structure so that we can use it with easy 
+
+# I created a Tree, from the above information, in a dictionary, where keys of the dict were each node and its respective values were connected nodes with its cost. 
+
+  - e.g 
+  {1: [[2,4], [5, 10]},  means from node 1 is connected to node 2 and cost is 4, and so on 
+
+# I created a function, which takes a "trace" and returns the cost of the trace
+  - e.g. lets say the function is foo(some_hell_path), and if i call foo([1,2,3]), it returns the total cost from 1 to 2 to 3
+  - there are smart way to do this, but i used this dumb way 
+
+# Now the main A* Algo Function (there can be 100s of ways), but I though in this way 
+  - have one queue -> myOpen 
+  - have another queue -> myClosed
+  - have some list -> here you will track the expanded nodes 
+  - then start iterating from start node till you get the goal node, 
+      - nodes which are expanded > push it to myClose
+      - nodes which are yet to open > push it to myOpen 
+
+# Now when I look into my own code, i am not able to understand what i did :P So, check this next snap, you may figure it out...although i myself not able to understand what i did :) 
+
+

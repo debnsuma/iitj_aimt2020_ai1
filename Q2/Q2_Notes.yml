@@ -1,0 +1,84 @@
+1. So, first read this : https://www.obitko.com/tutorials/genetic-algorithms/ga-basic-description.php
+
+2. So, lets do a recap Genetic Algo:
+    - its not about the best solution 
+    - in GA, we start with some random solution(s) (note here, solution doesnt mean CORRECT solution), its just a solution 
+3. So here is what we do in GA:
+    1. we select a set of random solutions - we call this as POPULATION 
+      - lets say random somution were, A, B, C and D
+    2. next, we will need to have some fitness function which will help to check over all the random solutions we picked in step#1 and assign a fitness value to all the random solution 
+      - so, lets say the fitness function is fitness(), 
+      - fitness(A) - 10
+      - fitness(B) - 20
+      - fitness(B) - 15
+      - fitness(D) - 7 
+
+    3. So, now, we have all the random solutions(from step#1) and its fitness value(from step#2)
+
+    4. Next we need to have a function, lets say selection(), which will select the top lets say 50% of the total random solutions we have 
+      - so, we had 4 random solution so now, we will pick only 2, that is B and A (as they have the max fitness value)
+
+    5. Now, the most important part, we have to take the best selected solution(B and A) and create some new solution(in GA terms we call this as child)
+      - so, lets say parent1 = A
+                     parent2 = B 
+
+      - we need to do something and get some child, c1 and c2 
+        - example: lets say:
+                    A = [[ 1 2 3 4 ]
+                         [ 5 6 7 8 ]
+                         [ 9 10 11 12]]
+                    
+                    B = [[10 20 30 40]
+                         [50 60 70 80]
+                         [90 100 200 300]]
+
+                   then, 
+                   c1 could be = [[ 1 2 3 4 ]
+                                  [50 60 70 80]
+                                  [ 9 10 11 12]]
+                   c2 could be = [[10 20 30 40 ]
+                                  [5 6 7 8 ]
+                                  [90 100 200 300]]
+        - again, there is no logic we can use any hell logic 
+
+        - Now, what we have, we have the old random solution, [ A B C D c1 c2 ] -> All solutions we have so far 
+        - But we will take only the best one(what our selection function given) and the newly created one -> [A B c1 c2]
+
+      6. Now we go to Step#2 and repeat till we get the desire result, 
+        - now, whats the desire result, this we should know 
+          - lets say for our problem 
+            - my firness logic was check every block, if any adjecent block is same, i did not give any point but when the adjecent block is of different color we add 1 point
+            - [ 1 1 3 ]
+              [ 3 2 3 ]
+              [ 5 6 7 ]
+
+              Fitness value for row 1 : 1 + 2 + 1 = 4 similarly we need to claculate for all elements, and come up with the fitness value (which is nothing but step#2 ) 
+            - so before we start anything, lets say we need to know the fitness value of a matrix with all different colors, like this 
+             [ 1 2 3 
+               4 5 6
+               7 8 9]
+              We can calculate the firness value of this and we can save this in a variable "max_score_to_stop"
+    
+
+Now here is the sudo code:
+
+size_of_matrix = 10
+population = 100
+generations = 100
+
+def ga():
+    
+    max_score_to_stop = Calculate the best matrix's vitness value       
+    agents = Create random solutions # (Step # 1)
+    
+    for generation in range(generations):    # Looping it over
+                
+        agents = fitness(agents)           # (Step #2)
+        agents = selection(agents)         # (Step #4)
+        agents = crossover(agents)         # (Step #5)
+        
+        for agent in agents:               # (Step #6)  
+            if agent.fitness == max_score_to_stop:
+                "Smile and Sleep"
+            else:
+                "Add +1 to frustration"
