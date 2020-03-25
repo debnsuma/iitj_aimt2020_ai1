@@ -62,16 +62,16 @@
 
 Now here is the sudo code:
 
-size_of_matrix = 10
-population = 100
-generations = 100
+size_of_matrix = n
+population = size_of_matrix * 100
+generations = size_of_matrix * 20
 
 def ga():
     
-    max_score_to_stop = Calculate the best matrix's vitness value       
+    max_score_to_stop = Calculate the best matrix's fitness value       
     agents = Create random solutions # (Step # 1)
     
-    for generation in range(generations):    # Looping it over
+    for generation in range(generations):    # Looping it over 
                 
         agents = fitness(agents)           # (Step #2)
         agents = selection(agents)         # (Step #4)
@@ -79,6 +79,7 @@ def ga():
         
         for agent in agents:               # (Step #6)  
             if agent.fitness == max_score_to_stop:
-                "Smile and Sleep"
+                return the arry
             else:
-                "Add +1 to frustration"
+                continue to search 
+

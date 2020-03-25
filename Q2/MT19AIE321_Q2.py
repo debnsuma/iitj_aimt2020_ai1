@@ -14,14 +14,15 @@ import time
 import sys
 import fileinput
 
-### Raw Data from STDIN/File - FOR Hacker Rank
+## Raw Data from STDIN/File - FOR Hacker Rank
 data = []
 for line in fileinput.input():
     size_of_matrix = int(line)
 
-# Global Variables 
-population = size_of_matrix * 50
-generations = size_of_matrix * 20
+# # Global Variables 
+# size_of_matrix = 10
+# population = size_of_matrix * 50
+# generations = size_of_matrix * 20
 
 ## Create Square Matrix
 def create_squar_matrix(n, start=1, end=4, best_array=False):
@@ -146,7 +147,7 @@ def fitness(agents):
                     fitness_value_each_element += 1
 
             fitness_value_hash[index] = fitness_value_each_element
-     #       print(f"Element Index {index}, Fitness Value {fitness_value_each_element}")
+#            print(f"Element Index {index}, Fitness Value {fitness_value_each_element}")
         
         agent.fitness_value_hash = fitness_value_hash
         agent.fitness = sum(fitness_value_hash.values())
@@ -156,8 +157,7 @@ def fitness(agents):
 ## Selection Function 
 def selection(agents):
     
-    agents = sorted(agents, key=lambda agent: agent.fitness, reverse=True)
-    
+    agents = sorted(agents, key=lambda agent: agent.fitness, reverse=True)    
     agents = agents[:int(.1 * len(agents))]
     
     return agents
@@ -176,9 +176,7 @@ def crossover(agents):
         child2 = Agent(size_of_matrix)
         
         split = random.randint(0, size_of_matrix - 1) 
-        
-#         child1.array = np.concatenate((parent1.array[0:split], parent2.array[split:size_of_matrix]))
-#         child2.array = np.concatenate((parent2.array[0:split], parent1.array[split:size_of_matrix]))
+
         child1.array = parent1.array[0:split] + parent2.array[split:size_of_matrix]
         child2.array = parent2.array[0:split] + parent1.array[split:size_of_matrix]
         

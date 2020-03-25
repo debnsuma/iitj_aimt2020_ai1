@@ -36,16 +36,16 @@ def get_cost(trace, tree):
     return final_cost
 
 
-### Raw Data from STDIN/File - FOR Hacker Rank
-data = []
-for line in fileinput.input():
-    data.append(line)
-data = [ d.rstrip().split()  for d in data]
- 
-# ### Raw Data from STDIN/File  - FOR LAPTOP 
-# with open("astar_theory.txt") as f:
-#     data = f.readlines()
+# ### Raw Data from STDIN/File - FOR Hacker Rank
+# data = []
+# for line in fileinput.input():
+#     data.append(line)
 # data = [ d.rstrip().split()  for d in data]
+ 
+### Raw Data from STDIN/File  - FOR LAPTOP 
+with open("input.txt") as f:
+    data = f.readlines()
+data = [ d.rstrip().split()  for d in data]
 
 ### Total No of Nodes (line no. 1)
 total_no_node = int(data[0][0])
