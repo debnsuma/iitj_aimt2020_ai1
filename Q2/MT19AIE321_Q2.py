@@ -14,15 +14,15 @@ import time
 import sys
 import fileinput
 
-## Raw Data from STDIN/File - FOR Hacker Rank
-data = []
-for line in fileinput.input():
-    size_of_matrix = int(line)
+# ## Raw Data from STDIN/File - FOR Hacker Rank
+# data = []
+# for line in fileinput.input():
+#     size_of_matrix = int(line)
 
-# # Global Variables 
-# size_of_matrix = 10
-# population = size_of_matrix * 50
-# generations = size_of_matrix * 20
+# Global Variables 
+size_of_matrix = 10
+population = size_of_matrix * 150
+generations = size_of_matrix * 20
 
 ## Create Square Matrix
 def create_squar_matrix(n, start=1, end=4, best_array=False):
@@ -96,7 +96,7 @@ def get_adjusent(array, i_row, j_column):
     try: 
         right_element = i_row, j_column + 1
 #         neighbours[right_element] = (array[right_element[0], right_element[1]])
-        neighbours[left_element] = (array[left_element[0]][left_element[1]])
+        neighbours[right_element] = (array[right_element[0]][right_element[1]])
     except IndexError:
         pass
     try:
@@ -210,7 +210,7 @@ def ga():
     
     for generation in range(generations):
         
-#         print(f"Since Generation: {generation}, Best Fitness We Got {agents[0].fitness}, Fitness We Are Looking for {max_score_to_stop}")
+        print(f"Since Generation: {generation}, Best Fitness We Got {agents[0].fitness}, Fitness We Are Looking for {max_score_to_stop}")
         
         agents = fitness(agents)
         agents = selection(agents)

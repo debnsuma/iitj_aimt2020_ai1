@@ -1,8 +1,8 @@
-10                              
-20 20 15 10 10 15 9 8 10 0      
-1 10                            
-15                              
-1 2 6                           
+10                                  # No. of nodes                         
+20 20 15 10 10 15 9 8 10 0          # The heuristics
+1 10                                # Start Node and Goal Node
+16                                  # Total no. of edges
+1 2 6                               # start, end, and actual cost of the edge(from this line till the end)
 1 3 2
 1 4 15
 2 3 12
@@ -18,5 +18,6 @@
 7 8 1
 8 10 15
 9 10 15
+
 
 
